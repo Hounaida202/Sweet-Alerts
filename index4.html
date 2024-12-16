@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danger sweet alert</title>
+</head>
+<style>
+    body{
+        position: relative;
+        height: 100vh;
+    }
+    .danger-item{
+       height: 100px;
+       width: 200px;
+       background-color: rgb(241, 142, 142);
+       border: solid 2px rgb(99, 10, 10);
+       border-radius: 10px;
+       font-size: 16px;
+       padding-left: 10px;
+       display: none;
+       display: flex;
+       justify-content: center;
+
+    }
+    .position1{
+      
+       position: absolute;
+       left: 42%;
+       display: block;
+    }
+    .position2{
+        position: absolute;
+       top:350px ;
+       left: 42%;
+       display: block;
+    }
+    .position3{
+    position: absolute;
+    top:40% ;
+    display: block;
+    }
+   .position4{
+    position: absolute;
+    top:40% ;
+    left: 80%;
+    display: block;
+    }
+    input{
+        text-decoration: none;
+        list-style: none;
+    }
+    p{
+        font-size: 20px;
+    }
+</style>
+<body class="body">
+    <p>Choissez la position de votre alert:</p>
+    <input type="radio" id="Up" name="Up" value="Up" >
+    <label for="Up">Up ⬆️</label>
+    <input type="radio" id="down" name="Up" value="Up" >
+    <label for="down">Down ⬇️</label>
+    <input type="radio" id="left" name="Up" value="Up" >
+    <label for="left">Left ⬅️</label>
+    <input type="radio" id="right" name="Up" value="Up" >
+    <label for="right">Right ➡️</label>
+<script>
+    function DangerAlert(message){
+
+    let body=document.querySelector(".body");
+    let up=document.getElementById("Up");
+    let down=document.getElementById("down");
+    let left=document.getElementById("left");
+    let right=document.getElementById("right");
+
+
+    let danger=document.createElement("div");
+up.addEventListener("click",function(){
+
+    danger.classList.add("danger-item");
+    danger.classList.add("position1")
+
+    danger.innerHTML=`
+    <span>❌</span><span>${message}</span>
+`
+body.appendChild(danger);
+setTimeout(()=>{
+    danger.classList.remove("position1");
+    danger.style.display="none"
+},4000);
+});
+
+
+down.addEventListener("click",function(){
+
+    danger.classList.add("danger-item");
+    danger.classList.add("position2")
+
+    danger.innerHTML=`
+<span>❌</span><span>${message}</span>
+`
+body.appendChild(danger);
+setTimeout(()=>{
+    danger.style.display="none"
+},4000);
+});
+
+left.addEventListener("click",function(){
+
+    danger.classList.add("danger-item");
+    danger.classList.add("position3")
+
+    danger.innerHTML=`
+<span>❌</span><span>${message}</span>
+`
+body.appendChild(danger);
+setTimeout(()=>{
+    danger.style.display="none"
+},4000);
+});
+
+right.addEventListener("click",function(){
+
+    danger.classList.add("danger-item");
+    danger.classList.add("position4")
+
+    danger.innerHTML=`
+<span>❌</span><span>${message}</span>
+`
+body.appendChild(danger);
+setTimeout(()=>{
+    danger.style.display="none"
+},4000);
+});
+}
+    DangerAlert("Danger");
+</script>
+</body>
+</html>
